@@ -111,10 +111,10 @@ defmodule Credo.CLI.Output.Shell do
   end
 
   defp do_puts(value) do
-    Bunt.puts(value)
+    IO.puts(IO.ANSI.format(value))
   end
 
   defp do_warn(value) do
-    Bunt.warn(value)
+    IO.warn(IO.ANSI.format(value))
   end
 end

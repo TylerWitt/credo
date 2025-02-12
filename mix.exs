@@ -142,14 +142,13 @@ defmodule Credo.Mixfile do
   def application do
     [
       mod: {Credo.Application, []},
-      extra_applications: [:bunt, :crypto, :eex, :ex_unit, :file_system, :inets, :jason, :logger]
+      extra_applications: [:crypto, :eex, :ex_unit, :file_system, :inets, :jason, :logger]
     ]
   end
 
   defp deps do
     [
       {:file_system, "~> 0.2 or ~> 1.0"},
-      {:bunt, "~> 0.2.1 or ~> 1.0"},
       {:jason, "~> 1.0"},
       {:ex_doc, "~> 0.25", only: :dev, runtime: false}
     ]
