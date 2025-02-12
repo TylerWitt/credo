@@ -25,7 +25,7 @@ defmodule Credo.CLI.Command.Categories.CategoriesCommand do
     %{
       id: :design,
       name: "design",
-      color: :olive,
+      color: :green,
       title: "Software Design",
       description: """
       While refactor checks show you possible problems, these checks try to

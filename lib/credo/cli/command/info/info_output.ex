@@ -13,7 +13,7 @@ defmodule Credo.CLI.Command.Info.InfoOutput do
   defp format_mod(%{format: nil}), do: Credo.CLI.Command.Info.Output.Default
 
   def print_help(exec) do
-    usage = ["Usage: ", :olive, "mix credo info [options]"]
+    usage = ["Usage: ", :green, "mix credo info [options]"]
 
     description = """
 
@@ -22,7 +22,7 @@ defmodule Credo.CLI.Command.Info.InfoOutput do
 
     example = [
       "Example: ",
-      :olive,
+      :green,
       :faint,
       "$ mix credo info --format=json --verbose"
     ]

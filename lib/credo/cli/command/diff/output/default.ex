@@ -14,7 +14,7 @@ defmodule Credo.CLI.Command.Diff.Output.Default do
   @category_starting_order [:design, :readability, :refactor]
   @category_ending_order [:warning, :consistency, :custom, :unknown]
   @category_colors [
-    design: :olive,
+    design: :green,
     readability: :blue,
     refactor: :yellow,
     warning: :red,

@@ -10,7 +10,7 @@ defmodule Credo.CLI.Command.Explain.ExplainOutput do
   def print_help(exec) do
     usage = [
       "Usage: ",
-      :olive,
+      :green,
       "mix credo explain <check_name_or_path_line_no_column> [options]"
     ]
 
@@ -21,7 +21,7 @@ defmodule Credo.CLI.Command.Explain.ExplainOutput do
 
     example = [
       "Examples:\n",
-      :olive,
+      :green,
       "  $ mix credo explain lib/foo/bar.ex:13:6\n",
       "  $ mix credo explain lib/foo/bar.ex:13:6 --format json\n",
       "  $ mix credo explain Credo.Check.Refactor.Nesting"

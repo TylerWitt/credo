@@ -42,7 +42,7 @@ defmodule Credo.CLI.Output do
     case category do
       "consistency" -> :cyan
       "readability" -> :blue
-      "design" -> :olive
+      "design" -> :green
       "refactor" -> :yellow
       "warning" -> :red
       _ -> :magenta

@@ -36,7 +36,7 @@ defmodule Credo.CLI.Command.Help do
 
   def print_message(exec) do
     UI.puts("Credo Version #{Credo.version()}")
-    UI.puts(["Usage: ", :olive, "$ mix credo <command> [options]"])
+    UI.puts(["Usage: ", :green, "$ mix credo <command> [options]"])
     UI.puts("\nCommands:\n")
 
     exec
@@ -63,7 +63,7 @@ defmodule Credo.CLI.Command.Help do
 
     example = [
       "For example, `",
-      :olive,
+      :green,
       "mix credo suggest --help",
       :reset,
       "` for help on the default command."

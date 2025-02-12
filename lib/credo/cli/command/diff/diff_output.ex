@@ -10,7 +10,7 @@ defmodule Credo.CLI.Command.Diff.DiffOutput do
   alias Credo.CLI.Output.UI
 
   def print_help(exec) do
-    usage = ["Usage: ", :olive, "mix credo diff [options]"]
+    usage = ["Usage: ", :green, "mix credo diff [options]"]
 
     description = """
 
@@ -19,7 +19,7 @@ defmodule Credo.CLI.Command.Diff.DiffOutput do
 
     example = [
       "Examples:\n",
-      :olive,
+      :green,
       "  $ mix credo diff v1.4.0\n",
       "  $ mix credo diff main\n",
       "  $ mix credo diff --from-git-ref HEAD --files-included \"lib/**/*.ex\""
