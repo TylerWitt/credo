@@ -5,6 +5,8 @@ defmodule Credo.CLI.Output.Shell do
 
   use GenServer
 
+  alias Credo.CLI.Output.Color
+
   def start_link(opts \\ []) do
     {:ok, _pid} = GenServer.start_link(__MODULE__, opts, name: __MODULE__)
   end
@@ -60,7 +62,9 @@ defmodule Credo.CLI.Output.Shell do
         _from,
         %{use_colors: true, suppress_output: false} = current_state
       ) do
-    do_puts(value)
+    value
+    |> cast_colors()
+    |> do_puts()
 
     {:reply, nil, current_state}
   end
@@ -86,7 +90,9 @@ defmodule Credo.CLI.Output.Shell do
         _from,
         %{use_colors: true, suppress_output: false} = current_state
       ) do
-    do_warn(value)
+    value
+    |> cast_colors()
+    |> do_warn()
 
     {:reply, nil, current_state}
   end
@@ -103,11 +109,23 @@ defmodule Credo.CLI.Output.Shell do
     {:reply, nil, current_state}
   end
 
+  defp cast_colors(value) do
+    value
+    |> List.wrap()
+    |> List.flatten()
+    |> Enum.flat_map(
+      fn
+        %Color{} = color -> Color.to_ansi(color)
+        item -> [item]
+      end
+    )
+  end
+
   defp remove_colors(value) do
     value
     |> List.wrap()
     |> List.flatten()
-    |> Enum.reject(&is_atom/1)
+    |> Enum.reject(&match?(%Color{}, &1))
   end
 
   defp do_puts(value) do

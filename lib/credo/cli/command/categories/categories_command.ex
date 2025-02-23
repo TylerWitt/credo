@@ -3,6 +3,7 @@ defmodule Credo.CLI.Command.Categories.CategoriesCommand do
 
   alias Credo.CLI.Command.Categories.CategoriesOutput
   alias Credo.CLI.Switch
+  alias Credo.CLI.Output.Color
 
   use Credo.CLI.Command,
     short_description: "Show and explain all issue categories",
@@ -15,7 +16,7 @@ defmodule Credo.CLI.Command.Categories.CategoriesCommand do
     %{
       id: :readability,
       name: "readability",
-      color: :blue,
+      color: Color.build(:blue),
       title: "Code Readability",
       description: """
       Readability checks do not concern themselves with the technical correctness
@@ -25,7 +26,7 @@ defmodule Credo.CLI.Command.Categories.CategoriesCommand do
     %{
       id: :design,
       name: "design",
-      color: :green,
+      color: Color.build(:olive),
       title: "Software Design",
       description: """
       While refactor checks show you possible problems, these checks try to
@@ -36,7 +37,7 @@ defmodule Credo.CLI.Command.Categories.CategoriesCommand do
     %{
       id: :refactor,
       name: "refactor",
-      color: :yellow,
+      color: Color.build(:yellow),
       title: "Refactoring opportunities",
       description: """
       The Refactor checks show you opportunities to avoid future problems and
@@ -46,7 +47,7 @@ defmodule Credo.CLI.Command.Categories.CategoriesCommand do
     %{
       id: :warning,
       name: "warning",
-      color: :red,
+      color: Color.build(:red),
       title: "Warnings - please take a look",
       description: """
       These checks warn you about things that are potentially dangerous, like a
@@ -57,7 +58,7 @@ defmodule Credo.CLI.Command.Categories.CategoriesCommand do
     %{
       id: :consistency,
       name: "consistency",
-      color: :cyan,
+      color: Color.build(:cyan),
       title: "Consistency",
       description: """
       These checks take a look at your code and ensure a consistent coding style.

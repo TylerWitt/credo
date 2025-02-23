@@ -2,6 +2,7 @@ defmodule Credo.CLI.Command.Categories.Output.Default do
   @moduledoc false
 
   alias Credo.CLI.Output
+  alias Credo.CLI.Output.Color
   alias Credo.CLI.Output.UI
 
   def print(_exec, categories) do
@@ -14,12 +15,7 @@ defmodule Credo.CLI.Command.Categories.Output.Default do
     UI.puts()
 
     [
-      :bright,
-      "#{color}_background" |> String.to_atom(),
-      color,
-      " ",
-      Output.foreground_color(color),
-      :normal,
+      Color.as_background(color),
       " #{title}" |> String.pad_trailing(term_width - 1)
     ]
     |> UI.puts()

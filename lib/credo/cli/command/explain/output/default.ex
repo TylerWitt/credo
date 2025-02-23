@@ -2,6 +2,7 @@ defmodule Credo.CLI.Command.Explain.Output.Default do
   @moduledoc false
 
   alias Credo.CLI.Output
+  alias Credo.CLI.Output.Color
   alias Credo.CLI.Output.UI
   alias Credo.Code.Scope
 
@@ -57,12 +58,7 @@ defmodule Credo.CLI.Command.Explain.Output.Default do
     UI.puts()
 
     [
-      :bright,
-      "#{color}_background" |> String.to_atom(),
-      color,
-      " ",
-      Output.foreground_color(color),
-      :normal,
+      Color.as_background(color),
       " Check: #{check_name}" |> String.pad_trailing(term_width - 1)
     ]
     |> UI.puts()
@@ -139,12 +135,7 @@ defmodule Credo.CLI.Command.Explain.Output.Default do
     UI.puts()
 
     [
-      :bright,
-      "#{color}_background" |> String.to_atom(),
-      color,
-      " ",
-      Output.foreground_color(color),
-      :normal,
+      Color.as_background(color),
       " #{scope_name}" |> String.pad_trailing(term_width - 1)
     ]
     |> UI.puts()

@@ -1,4 +1,6 @@
 defmodule Credo.CLI.Output.UI do
+  alias Credo.CLI.Output.Color
+
   @moduledoc """
   This module provides functions used to create the UI.
 
@@ -36,7 +38,7 @@ defmodule Credo.CLI.Output.UI do
   end
 
   def edge(color, indent \\ 2) when is_integer(indent) do
-    [:reset, color, @edge |> String.pad_trailing(indent)]
+    List.flatten([:reset, Color.to_ansi(color), @edge |> String.pad_trailing(indent)])
   end
 
   @doc "Returns the edge (`┃`) which is used in much of Credo's output as a binary."

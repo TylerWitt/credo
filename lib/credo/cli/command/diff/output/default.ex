@@ -5,6 +5,7 @@ defmodule Credo.CLI.Command.Diff.Output.Default do
   alias Credo.CLI.Command.Diff.DiffSummary
   alias Credo.CLI.Filename
   alias Credo.CLI.Output
+  alias Credo.CLI.Output.Color
   alias Credo.CLI.Output.UI
   alias Credo.CLI.Sorter
   alias Credo.Execution
@@ -132,12 +133,7 @@ defmodule Credo.CLI.Command.Diff.Output.Default do
 
     [
       diff_marker(1, color),
-      :bright,
-      "#{color}_background" |> String.to_atom(),
-      color,
-      " ",
-      Output.foreground_color(color),
-      :normal,
+      Color.as_background(color),
       " #{title}" |> String.pad_trailing(term_width - 3)
     ]
     |> UI.puts()
